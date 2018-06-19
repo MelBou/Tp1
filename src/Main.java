@@ -23,15 +23,13 @@ public class Main {
         System.out.println(" ");
 
 
-        /**
-         * Affichage du menu
-         */
         Menu menu = new Menu();
         Catalog list = new Catalog();
 
         /**
          * Le switch le plus long de toute l'histoire de l'humanité.
          */
+        char reponse = ' ';
         String answer;
         do {
             menu.menu();
@@ -88,23 +86,19 @@ public class Main {
                         System.out.println("Votre demande ne correspond pas à nos attentes.");
                     }
                     break;
-
                 case "4":
-
+                    System.out.println("Voulez-vous quitter? O/N");
+                    reponse = sc.nextLine().charAt(0);
                     break;
-
-                case "5":
-
-                    break;
-
                 default:
-                    System.out.println("Je n'ai pas compris votre réponse veuillez vous faire foutre");
+                    System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
                     System.out.println(" ");
-            }
+            } while (reponse != 'O' && reponse != 'N');
 
-        }
+        } while(reponse != 'O');
+        System.out.println("A bientôt!");
 
-        while (answer != "1");
+
 
 
     }
