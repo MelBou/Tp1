@@ -93,13 +93,10 @@ public class Main {
                 default:
                     System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
                     System.out.println(" ");
-            } while (reponse != 'O' && reponse != 'N');
+            }
 
         } while(reponse != 'O');
         System.out.println("A bientôt!");
-
-
-
 
     }
 }
