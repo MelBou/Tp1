@@ -14,13 +14,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Bonjour, quel est votre prénom?");
-        user1.firstname = sc.nextLine();
+        user1.setFirstname(sc.nextLine());
         System.out.println("Quel est votre nom?");
-        user1.name = sc.nextLine();
+        user1.setName(sc.nextLine());
         System.out.println("Où vivez-vous?");
-        user1.town = sc.nextLine();
-        System.out.println("Enchanté " + user1.firstname + " " + user1.name + " de " + user1.town);
+        user1.setTown(sc.nextLine());
+        System.out.println("Enchanté " + user1.getFirstname() + " " + user1.getName() + " de " + user1.getTown());
         System.out.println(" ");
+
 
 
         Menu menu = new Menu();
@@ -36,7 +37,7 @@ public class Main {
             answer = sc.nextLine();
             switch (answer) {
                 case "1":
-                    System.out.println("Enchanté " + user1.firstname + " " + user1.name + " de " + user1.town);
+                    System.out.println("Enchanté " + user1.getFirstname() + " " + user1.getName() + " de " + user1.getTown());
                     System.out.println(" ");
                     System.out.println(" ");
                     break;
@@ -53,20 +54,20 @@ public class Main {
                         case "1":
                             System.out.println("Indiquez votre nouveau prénom");
                             Scanner rep1 = new Scanner(System.in);
-                            user1.firstname = rep1.nextLine();
-                            System.out.println("Votre nouveau prénom est " + user1.firstname);
+                            user1.setFirstname(rep1.nextLine());
+                            System.out.println("Votre nouveau prénom est " + user1.getFirstname());
                             break;
                         case "2":
                             System.out.println("Indiquez votre nouveau nom");
                             Scanner rep2 = new Scanner(System.in);
-                            user1.name = rep2.nextLine();
-                            System.out.println("Votre nouveau nom est " + user1.name);
+                            user1.setName(rep2.nextLine());
+                            System.out.println("Votre nouveau nom est " + user1.getName());
                             break;
                         case "3":
                             System.out.println("Indiquez votre nouvelle ville");
                             Scanner rep3 = new Scanner(System.in);
-                            user1.town = rep3.nextLine();
-                            System.out.println("Votre nouvelle ville est " + user1.town);
+                            user1.setTown(rep3.nextLine());
+                            System.out.println("Votre nouvelle ville est " + user1.getTown());
                             break;
                         }
                     break;
