@@ -8,8 +8,8 @@ public class Admin extends User {
     }
 
     @Override
-    public void menu() {
-        super.menu();
+    public void showMenu() {
+        super.showMenu();
         System.out.println("4 --- Créer un utilisateur");
         System.out.println("5 --- Supprimer un utilisateur");
         System.out.println("-------------------------------------------------");
