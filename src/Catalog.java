@@ -1,15 +1,18 @@
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Catalog {
     //private String[] fruits = {"Abricots", "Ananas", "Bananes", "Citrons", "Fruits de la passion", "Grenades", "Kiwis", "Poires", "Pommes"};
     //private String[] veggies = {"Artichauts", "Asperges", "Aubergine", "Celeris", "Choux", "Courges", "Haricots", "Laitues", "Radis"};
-    ArrayList<String> fruits = new ArrayList<String>();
-    ArrayList<String> veggies = new ArrayList<String>();
+    private ArrayList<String> fruits;
+    private ArrayList<String> veggies;
 
-    public void fruitsCatalog(){
+    public Catalog(){
+        listFruits();
+        veggiesList();
+    }
+
+    private void listFruits() {
+        fruits = new ArrayList<>();
         fruits.add("Abricots");
         fruits.add("Ananas");
         fruits.add("Bananes");
@@ -21,7 +24,8 @@ public class Catalog {
         fruits.add("Pommes");
     }
 
-    public void veggiesCatalog(){
+    private void veggiesList() {
+        veggies = new ArrayList<>();
         veggies.add("Artichauts");
         veggies.add("Asperges");
         veggies.add("Aubergine");

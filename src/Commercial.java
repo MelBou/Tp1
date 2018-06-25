@@ -7,7 +7,8 @@ public class Commercial extends User {
     @Override
     public void menu() {
         super.menu();
-        System.out.println("4 --- Modifier un produit");
+        System.out.println("4 --- Ajouter un produit");
+        System.out.println("5 --- Modifier un produit");
         System.out.println("-------------------------------------------------");
     }
 }

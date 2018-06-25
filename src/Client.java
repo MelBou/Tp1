@@ -15,14 +15,12 @@ public class Client extends User {
     }
 
 
+
     @Override
     protected boolean handleAction(Scanner sc, int answer) {
         if (super.handleAction(sc, answer)) {
             return true;
         }
-        //handle actions
         return false;
     }
-
-
 }

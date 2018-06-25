@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
 
 
@@ -17,13 +17,12 @@ public class Main {
         User userConnecte = connectUser(sc, userList);
 
 
-        if(userConnecte!=null){
+        if(userConnecte!=null) {
             do {
                 userConnecte.menu();
-            }while (userConnecte!=null);
-
-
+            } while (userConnecte != null);
         }
+
 
 
 //        Menu menu = new Menu();

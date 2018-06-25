@@ -1,4 +1,3 @@
-import javax.xml.transform.sax.SAXSource;
 import java.util.Scanner;
 
 public class User {
@@ -83,6 +82,10 @@ public class User {
                 case 0:
                     System.out.println("Voulez-vous quitter? O/N");
                     reponse = sc.nextLine().charAt(0);
+                    if (reponse == 'O'){
+                        System.out.println("A bientôt");
+                        System.exit(0);
+                    }
                     break;
                 case 1:
                     System.out.println("Vos données personnelles : ");
