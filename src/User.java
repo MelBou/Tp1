@@ -1,4 +1,3 @@
-import javax.xml.transform.sax.SAXSource;
 import java.util.Scanner;
 
 public class User {
@@ -77,12 +76,10 @@ public class User {
         String loginDeMerde;
         String mdpDeMerde;
 
-        char reponse = ' ';
         Catalog list = new Catalog();
             switch (answer) {
                 case 0:
                     System.out.println("Voulez-vous quitter? O/N");
-                    reponse = sc.nextLine().charAt(0);
                     break;
                 case 1:
                     System.out.println("Vos données personnelles : ");
