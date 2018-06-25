@@ -8,9 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /**
-         * Création "base de données" avec 3 utilisateurs (un admin, un client, un commercial)
-         */
+
 
 
         HashMap<String, User> userList = loadUsers();
@@ -18,10 +16,12 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         User userConnecte = connectUser(sc, userList);
 
+
         if(userConnecte!=null){
             do {
                 userConnecte.menu();
             }while (userConnecte!=null);
+
 
         }
 
@@ -145,7 +145,6 @@ public class Main {
             System.out.println("Saisissez votre mot de passe");
             mdpDeMerde = sc.nextLine();
 
-
             if (mdpDeMerde.equals(userConnecte.getPassword())){
                 loginFailed=false;
             } else {
@@ -158,6 +157,9 @@ public class Main {
         return userConnecte;
     }
 
+    /**
+     * Création "base de données" avec 3 utilisateurs (un admin, un client, un commercial)
+     */
     protected static HashMap<String, User> loadUsers() {
         User user1 = new Admin();
         User user2 = new Client();
