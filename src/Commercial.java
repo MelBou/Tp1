@@ -21,51 +21,63 @@ public class Commercial extends User {
         super.handleAction(sc, answer, catalog);
         switch (answer){
             case 4:
-                System.out.println("1 --- Ajouter un fruit");
-                System.out.println("2 --- Ajouter un légume");
-                String choiceToAdd = sc.next();
-                if (choiceToAdd.equals("1")) {
-                    this.addNewProductFruit(sc, catalog);
-                } else {
-                    if (choiceToAdd.equals("2")) {
-                        this.addNewProductVeggie(sc, catalog);
-                    } else {
-                        System.out.println("Choix non valide");
-                    }
-                }
-                break;
+                addProduct(sc, catalog);
+                return true;
             case 5:
-                System.out.println("1 --- Modifier un fruit");
-                System.out.println("2 --- Modifier un légume");
-                String choiceToModify = sc.next();
-                if (choiceToModify.equals("1")) {
-
-                    this.modifyProductFruit(sc, catalog);
-                } else {
-                    if (choiceToModify.equals("2")) {
-                        this.modifyProductVeggie(sc, catalog);
-                    } else {
-                        System.out.println("Choix non valide");
-                    }
-                }
-                break;
+                modifyProduct(sc, catalog);
+                return true;
             case 6:
-                System.out.println("1 --- Supprimer un fruit");
-                System.out.println("2 --- Supprimer un légume");
-                String choiceToDelete = sc.next();
-                if (choiceToDelete.equals("1")) {
-                    this.deleteProductFruit(sc, catalog);
-                } else {
-                    if (choiceToDelete.equals("2")) {
-                        this.deleteProductVeggie(sc, catalog);
-                    } else {
-                        System.out.println("Choix non valide");
-                    }
-                }
-                break;
+                deleteProduct(sc, catalog);
+                return true;
 
         }
         return false;
+    }
+
+    private void deleteProduct(Scanner sc, Catalog catalog) {
+        System.out.println("1 --- Supprimer un fruit");
+        System.out.println("2 --- Supprimer un légume");
+        String choiceToDelete = sc.next();
+        if (choiceToDelete.equals("1")) {
+            this.deleteProductFruit(sc, catalog);
+        } else {
+            if (choiceToDelete.equals("2")) {
+                this.deleteProductVeggie(sc, catalog);
+            } else {
+                System.out.println("Choix non valide");
+            }
+        }
+    }
+
+    private void modifyProduct(Scanner sc, Catalog catalog) {
+        System.out.println("1 --- Modifier un fruit");
+        System.out.println("2 --- Modifier un légume");
+        String choiceToModify = sc.next();
+        if (choiceToModify.equals("1")) {
+
+            this.modifyProductFruit(sc, catalog);
+        } else {
+            if (choiceToModify.equals("2")) {
+                this.modifyProductVeggie(sc, catalog);
+            } else {
+                System.out.println("Choix non valide");
+            }
+        }
+    }
+
+    private void addProduct(Scanner sc, Catalog catalog) {
+        System.out.println("1 --- Ajouter un fruit");
+        System.out.println("2 --- Ajouter un légume");
+        String choiceToAdd = sc.next();
+        if (choiceToAdd.equals("1")) {
+            this.addNewProductFruit(sc, catalog);
+        } else {
+            if (choiceToAdd.equals("2")) {
+                this.addNewProductVeggie(sc, catalog);
+            } else {
+                System.out.println("Choix non valide");
+            }
+        }
     }
 
 

@@ -60,7 +60,11 @@ public class User {
         Scanner sc = new Scanner(System.in);
         this.showMenu();
         int answer = readInput(sc);
-        handleAction(sc, answer, catalog);
+        boolean status = handleAction(sc, answer, catalog);
+        if (!status){
+            System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
+            System.out.println(" ");
+        }
     }
 
     protected void showMenu(  ) {
@@ -120,9 +124,6 @@ public class User {
                         System.out.println("Votre demande ne correspond pas à nos attentes.");
                     }
                     return true;
-                case 6:
-                    System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
-                    System.out.println(" ");
             }
             return false;
     }

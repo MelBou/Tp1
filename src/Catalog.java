@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
 public class Catalog {
-    //private String[] fruits = {"Abricots", "Ananas", "Bananes", "Citrons", "Fruits de la passion", "Grenades", "Kiwis", "Poires", "Pommes"};
-    //private String[] veggies = {"Artichauts", "Asperges", "Aubergine", "Celeris", "Choux", "Courges", "Haricots", "Laitues", "Radis"};
     private ArrayList<String> fruits;
     private ArrayList<String> veggies;
 
