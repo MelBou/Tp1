@@ -64,9 +64,7 @@ public class Catalog {
         return result;
     }
 
-    public void renameFruit(String newName, int index){
-        fruits.set(index, newName);
-    }
+
 
     public String getOneVeggie(int index){
         String result = null;
@@ -78,7 +76,14 @@ public class Catalog {
         }
         return result;
     }
+    
+    public void renameFruit(String newName, int index){
+        fruits.set(index, newName);
+    }
 
+    public void renameVeggie(String newName, int index){
+        veggies.set(index, newName);
+    }
 
 
 
