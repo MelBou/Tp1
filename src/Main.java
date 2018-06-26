@@ -16,10 +16,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         User userConnecte = connectUser(sc, userList);
 
+        Catalog catalog = new Catalog();
 
         if(userConnecte!=null) {
             do {
-                userConnecte.menu();
+                userConnecte.menu(catalog);
             } while (userConnecte != null);
         }
 

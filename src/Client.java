@@ -17,8 +17,8 @@ public class Client extends User {
 
 
     @Override
-    protected boolean handleAction(Scanner sc, int answer) {
-        if (super.handleAction(sc, answer)) {
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog) {
+        if (super.handleAction(sc, answer, catalog)) {
             return true;
         }
         return false;

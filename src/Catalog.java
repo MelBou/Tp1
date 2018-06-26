@@ -55,14 +55,17 @@ public class Catalog {
     public String getOneFruit(int index) {
 
         String result = null;
-        int tabLength = fruits.size();
 
         try {
             result = fruits.get(index);
         } catch (ArrayIndexOutOfBoundsException i) {
-            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 0 et " + tabLength);
+            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 0 et " + fruits.size());
         }
         return result;
+    }
+
+    public void renameFruit(String newName, int index){
+        fruits.set(index, newName);
     }
 
     public String getOneVeggie(int index){

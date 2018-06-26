@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
@@ -55,11 +56,11 @@ public class User {
         this.password=password;
     }
 
-    public void menu(){
+    public void menu(Catalog catalog){
         Scanner sc = new Scanner(System.in);
         this.showMenu();
         int answer = readInput(sc);
-        handleAction(sc, answer);
+        handleAction(sc, answer, catalog);
     }
 
     protected void showMenu(  ) {
@@ -72,12 +73,11 @@ public class User {
         System.out.println("3 --- Afficher les produits de notre catalogue");
     }
 
-    protected boolean handleAction(Scanner sc, int answer) {
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog) {
         String loginDeMerde;
         String mdpDeMerde;
 
         char reponse = ' ';
-        Catalog list = new Catalog();
             switch (answer) {
                 case 0:
                     System.out.println("Voulez-vous quitter? O/N");
@@ -87,6 +87,7 @@ public class User {
                         System.exit(0);
                     }
                     break;
+
                 case 1:
                     System.out.println("Vos données personnelles : ");
                     System.out.println(this.getFirstname() + " " + this.getName() + " de " + this.getTown());
@@ -111,15 +112,15 @@ public class User {
 
                     if (repCase3.equals("1")) {
                         System.out.println("Voici notre liste de fruits :");
-                        list.getFruits();
+                        catalog.getFruits();
                     } else if (repCase3.equals("2")) {
                         System.out.println("Voici notre liste de fruits :");
-                        list.getVeggies();
+                        catalog.getVeggies();
                     } else {
                         System.out.println("Votre demande ne correspond pas à nos attentes.");
                     }
                     return true;
-                default:
+                case 6:
                     System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
                     System.out.println(" ");
             }
