@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class User {
@@ -131,6 +132,39 @@ public class User {
         int answer = sc.nextInt();
         sc.nextLine();
         return answer;
+    }
+
+    public HashMap<String, User> loadUsers() {
+        User user1 = new Admin();
+        User user2 = new Client();
+        User user3 = new Commercial();
+
+        user1.setFirstname("Jean");
+        user1.setName("Bon");
+        user1.setTown("Aoste");
+
+        user2.setFirstname("Abby");
+        user2.setName("Gael");
+        user2.setTown("Cardiff");
+
+        user3.setFirstname("Richard");
+        user3.setName("Dassault");
+        user3.setTown("Leclerc");
+
+        user1.setLogin("123");
+        user1.setPassword("456");
+        user2.setLogin("456");
+        user2.setPassword("456");
+        user3.setLogin("789");
+        user3.setPassword("789");
+
+
+        HashMap<String, User> userList = new HashMap<>();
+        userList.put("123", user1);
+        userList.put("456", user2);
+        userList.put("789", user3);
+        return userList;
+
     }
 
 }
