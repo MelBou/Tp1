@@ -40,7 +40,7 @@ public class Catalog {
 
     public void getFruits() {
         for (int i = 0; i < fruits.size(); i++) {
-            System.out.println(fruits.get(i));
+            System.out.println(i+" --- "+fruits.get(i));
         }
     }
 
@@ -48,7 +48,7 @@ public class Catalog {
 
     public void getVeggies() {
         for (int i = 0; i < veggies.size(); i++) {
-            System.out.println(veggies.get(i));
+            System.out.println(i+" --- "+veggies.get(i));
         }
     }
 
@@ -76,15 +76,36 @@ public class Catalog {
         }
         return result;
     }
-    
+
     public void renameFruit(String newName, int index){
+
         fruits.set(index, newName);
     }
 
     public void renameVeggie(String newName, int index){
+
         veggies.set(index, newName);
     }
 
+    public String addFruit(String newFruit){
+        this.fruits.add(newFruit);
+        return newFruit;
+    }
+
+    public String addVeggie(String newVeggie){
+        this.veggies.add(newVeggie);
+        return newVeggie;
+    }
+
+    public void removeFruit(String fruitToDelete){
+
+        this.fruits.remove(fruitToDelete);
+    }
+
+    public void removeVeggie(String veggieToDelete){
+
+        this.veggies.remove(veggieToDelete);
+    }
 
 
 
