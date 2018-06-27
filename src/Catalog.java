@@ -79,12 +79,12 @@ public class Catalog {
         return result;
     }
 
-    public void renameFruit(Fruit newName, int index){
+    public void renameFruit(Product newName, int index){
 
         fruits.set(index, newName);
     }
 
-    public void renameVeggie(Veggie newName, int index){
+    public void renameVeggie(Product newName, int index){
 
         veggies.set(index, newName);
     }
@@ -99,7 +99,7 @@ public class Catalog {
         return newVeggie;
     }
 
-    public void removeFruit(Fruit fruitToDelete){
+    public void removeFruit(Product fruitToDelete){
 
         this.fruits.remove(fruitToDelete);
     }

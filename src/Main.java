@@ -9,12 +9,12 @@ public class Main {
 
 
 
-        User Users = new User();
+        UserManagement Users = new UserManagement();
 
         Users.loadUsers();
 
         Scanner sc = new Scanner(System.in);
-        User userConnecte = User.connectUser(sc,Users.loadUsers());
+        User userConnecte = UserManagement.connectUser(sc,Users.loadUsers());
 
         Catalog catalog = new Catalog();
 

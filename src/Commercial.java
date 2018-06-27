@@ -75,7 +75,7 @@ public class Commercial extends User {
         int whichFruitToModify;
         System.out.println("Indiquez le num?ro du produit(fruit) que vous souhaitez modifier");
         whichFruitToModify = sc.nextInt();
-        Fruit fruitGotBack = catalog.getOneFruit(whichFruitToModify);
+        Product fruitGotBack = catalog.getOneFruit(whichFruitToModify);
         System.out.println(fruitGotBack);
         System.out.println("Fruit choisi pour modif : " + fruitGotBack);
         System.out.println("Indiquez le nouveau nom :");
@@ -87,7 +87,7 @@ public class Commercial extends User {
         int whichVeggieToModify;
         System.out.println("Indiquez le num?ro du produit (l?gume) que vous souhaitez modifier");
         whichVeggieToModify = sc.nextInt();
-        Veggie veggieGotBack = catalog.getOneVeggie(whichVeggieToModify);
+        Product veggieGotBack = catalog.getOneVeggie(whichVeggieToModify);
         System.out.println(veggieGotBack);
         System.out.println("L?gume choisi pour modif : " + veggieGotBack);
         System.out.println("Indiquez le nouveau nom :");
@@ -119,7 +119,7 @@ public class Commercial extends User {
         int indexFruitToDelete;
         System.out.println("Indiquez le nom du fruit que vous souhaitez supprimer :");
         indexFruitToDelete = sc.nextInt();
-        Fruit fruitToDelete = catalog.getOneFruit(indexFruitToDelete);
+        Product fruitToDelete = catalog.getOneFruit(indexFruitToDelete);
         catalog.removeFruit(fruitToDelete);
         System.out.println("Ce fruit a bien été supprimé!");
     }
@@ -130,7 +130,7 @@ public class Commercial extends User {
 
         System.out.println("Indiquez le numéro du légume que vous souhaitez supprimer :");
         int userInput = sc.nextInt();
-        Veggie dlVeggie = catalog.getOneVeggie(userInput);
+        Product dlVeggie = catalog.getOneVeggie(userInput);
         System.out.println(dlVeggie.toString());
 
 
