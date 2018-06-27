@@ -10,6 +10,14 @@ public class User {
     private String login;
     private String password;
 
+    public User(String firstname, String name, String town, String login, String password) {
+        this.firstname = firstname;
+        this.name = name;
+        this.town = town;
+        this.login = login;
+        this.password = password;
+    }
+
     public String getFirstname(){
 
         return firstname;
@@ -56,6 +64,11 @@ public class User {
 
         this.password=password;
     }
+
+
+
+
+
 
     public void menu(Catalog catalog){
         Scanner sc = new Scanner(System.in);

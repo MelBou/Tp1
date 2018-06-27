@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Client extends User {
 
-    public Client() {
-        super();
+    public Client(String firstname, String name, String town, String login, String password){
+
+        super(firstname, name, town, login, password);
     }
 
     @Override
