@@ -1,39 +1,43 @@
 import java.util.ArrayList;
 
 public class Catalog {
-    private ArrayList<String> fruits;
-    private ArrayList<String> veggies;
+    private ArrayList<Product> fruits;
+    private ArrayList<Product> veggies;
+
 
     public Catalog(){
         listFruits();
         veggiesList();
     }
 
+
     private void listFruits() {
+
         fruits = new ArrayList<>();
-        fruits.add("Abricots");
-        fruits.add("Ananas");
-        fruits.add("Bananes");
-        fruits.add("Citrons");
-        fruits.add("Fruits de la passion");
-        fruits.add("Grenades");
-        fruits.add("Kiwis");
-        fruits.add("Poires");
-        fruits.add("Pommes");
+        fruits.add(new Fruit("Abricot", "France"));
+        fruits.add(new Fruit("Ananas", "France"));
+        fruits.add(new Fruit("Bananes", "France"));
+        fruits.add(new Fruit("Citrons", "France"));
+        fruits.add(new Fruit("Fruits de la passion", "France"));
+        fruits.add(new Fruit("Grenades", "France"));
+        fruits.add(new Fruit("Kiwis", "France"));
+        fruits.add(new Fruit("Poires", "France"));
+        fruits.add(new Fruit("Pommes", "France"));
+
     }
 
     private void veggiesList() {
         veggies = new ArrayList<>();
-        veggies.add("Artichauts");
-        veggies.add("Asperges");
-        veggies.add("Aubergine");
-        veggies.add("Celeris");
-        veggies.add("Choux");
-        veggies.add("Courges");
-        veggies.add("Haricots");
-        veggies.add("Laitues");
-        veggies.add("Radis");
-        veggies.add("Artichauts");
+        veggies.add(new Veggie("Artichauts", "France"));
+        veggies.add(new Veggie("Asperges", "France"));
+        veggies.add(new Veggie("Aubergine", "France"));
+        veggies.add(new Veggie("Celeris", "France"));
+        veggies.add(new Veggie("Choux", "France"));
+        veggies.add(new Veggie("Courges", "France"));
+        veggies.add(new Veggie("Haricots", "France"));
+        veggies.add(new Veggie("Laitues", "France"));
+        veggies.add(new Veggie("Radis", "France"));
+        veggies.add(new Veggie("Artichauts", "France"));
     }
 
     public void getFruits() {
@@ -50,9 +54,9 @@ public class Catalog {
         }
     }
 
-    public String getOneFruit(int index) {
+    public Product getOneFruit(int index) {
 
-        String result = null;
+        Product result = null;
 
         try {
             result = fruits.get(index);
@@ -64,43 +68,43 @@ public class Catalog {
 
 
 
-    public String getOneVeggie(int index){
-        String result = null;
+    public Product getOneVeggie(int index){
+        Veggie result = null;
 
         try {
-            result = veggies.get(index);
+            result = (Veggie)veggies.get(index);
         } catch (ArrayIndexOutOfBoundsException i) {
             System.out.println("Choix non valide. Veuillez choisir un chiffre entre 0 et " + veggies.size());
         }
         return result;
     }
 
-    public void renameFruit(String newName, int index){
+    public void renameFruit(Fruit newName, int index){
 
         fruits.set(index, newName);
     }
 
-    public void renameVeggie(String newName, int index){
+    public void renameVeggie(Veggie newName, int index){
 
         veggies.set(index, newName);
     }
 
-    public String addFruit(String newFruit){
+    public Fruit addFruit(Fruit newFruit){
         this.fruits.add(newFruit);
         return newFruit;
     }
 
-    public String addVeggie(String newVeggie){
+    public Veggie addVeggie(Veggie newVeggie){
         this.veggies.add(newVeggie);
         return newVeggie;
     }
 
-    public void removeFruit(String fruitToDelete){
+    public void removeFruit(Fruit fruitToDelete){
 
         this.fruits.remove(fruitToDelete);
     }
 
-    public void removeVeggie(String veggieToDelete){
+    public void removeVeggie(int veggieToDelete){
 
         this.veggies.remove(veggieToDelete);
     }

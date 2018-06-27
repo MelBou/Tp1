@@ -1,8 +1,5 @@
 import java.util.Scanner;
-
 public class Commercial extends User {
-
-
     public Commercial() {
         super();
     }
@@ -15,10 +12,10 @@ public class Commercial extends User {
         System.out.println("6 --- Supprimer un produit");
         System.out.println("-------------------------------------------------");
     }
-
     @Override
     protected boolean handleAction(Scanner sc, int answer, Catalog catalog) {
         super.handleAction(sc, answer, catalog);
+        if (!super.handleAction(sc, answer, catalog))
         switch (answer){
             case 4:
                 addProduct(sc, catalog);
@@ -29,14 +26,12 @@ public class Commercial extends User {
             case 6:
                 deleteProduct(sc, catalog);
                 return true;
-
         }
         return false;
     }
-
     private void deleteProduct(Scanner sc, Catalog catalog) {
         System.out.println("1 --- Supprimer un fruit");
-        System.out.println("2 --- Supprimer un légume");
+        System.out.println("2 --- Supprimer un l?gume");
         String choiceToDelete = sc.next();
         if (choiceToDelete.equals("1")) {
             this.deleteProductFruit(sc, catalog);
@@ -48,13 +43,11 @@ public class Commercial extends User {
             }
         }
     }
-
     private void modifyProduct(Scanner sc, Catalog catalog) {
         System.out.println("1 --- Modifier un fruit");
-        System.out.println("2 --- Modifier un légume");
+        System.out.println("2 --- Modifier un l?gume");
         String choiceToModify = sc.next();
         if (choiceToModify.equals("1")) {
-
             this.modifyProductFruit(sc, catalog);
         } else {
             if (choiceToModify.equals("2")) {
@@ -64,10 +57,9 @@ public class Commercial extends User {
             }
         }
     }
-
     private void addProduct(Scanner sc, Catalog catalog) {
         System.out.println("1 --- Ajouter un fruit");
-        System.out.println("2 --- Ajouter un légume");
+        System.out.println("2 --- Ajouter un l?gume");
         String choiceToAdd = sc.next();
         if (choiceToAdd.equals("1")) {
             this.addNewProductFruit(sc, catalog);
@@ -79,78 +71,70 @@ public class Commercial extends User {
             }
         }
     }
-
-
     public void modifyProductFruit(Scanner sc, Catalog catalog) {
         int whichFruitToModify;
-
-        System.out.println("Indiquez le numéro du produit(fruit) que vous souhaitez modifier");
+        System.out.println("Indiquez le num?ro du produit(fruit) que vous souhaitez modifier");
         whichFruitToModify = sc.nextInt();
-        catalog.getOneFruit(whichFruitToModify);
-        System.out.println(catalog.getOneFruit(whichFruitToModify));
-
-        System.out.println("Fruit choisi pour modif : " + catalog.getOneFruit(whichFruitToModify));
+        Fruit fruitGotBack = catalog.getOneFruit(whichFruitToModify);
+        System.out.println(fruitGotBack);
+        System.out.println("Fruit choisi pour modif : " + fruitGotBack);
         System.out.println("Indiquez le nouveau nom :");
         String replacement = sc.next();
-        catalog.renameFruit(replacement, whichFruitToModify);
-
+        fruitGotBack.setLabel(replacement);
+        catalog.renameFruit(fruitGotBack, whichFruitToModify);
     }
-
     public void modifyProductVeggie(Scanner sc, Catalog catalog) {
         int whichVeggieToModify;
-
-        System.out.println("Indiquez le numéro du produit (légume) que vous souhaitez modifier");
+        System.out.println("Indiquez le num?ro du produit (l?gume) que vous souhaitez modifier");
         whichVeggieToModify = sc.nextInt();
-        catalog.getOneVeggie(whichVeggieToModify);
-        System.out.println(catalog.getOneVeggie(whichVeggieToModify));
-
-        System.out.println("Légume choisi pour modif : " + catalog.getOneVeggie(whichVeggieToModify));
+        Veggie veggieGotBack = catalog.getOneVeggie(whichVeggieToModify);
+        System.out.println(veggieGotBack);
+        System.out.println("L?gume choisi pour modif : " + veggieGotBack);
         System.out.println("Indiquez le nouveau nom :");
         String replacement = sc.next();
-        catalog.renameVeggie(replacement, whichVeggieToModify);
-
+        veggieGotBack.setLabel(replacement);
+        catalog.renameVeggie(veggieGotBack, whichVeggieToModify);
     }
-
     public void addNewProductFruit(Scanner sc, Catalog catalog){
-
-        String addNewFruit;
-
+        String addLabelFruit;
+        String addOriginFruit;
         System.out.println("Indiquez le nom du fruit à ajouter au catalogue :");
-        addNewFruit = sc.next();
-        System.out.println("Nouveau fruit ajouté : "+catalog.addFruit(addNewFruit));
-
+        addLabelFruit = sc.next();
+        System.out.println("Indiquez le nom du fruit à ajouter au catalogue :");
+        addOriginFruit = sc.next();
+        Fruit newFruit = new Fruit(addLabelFruit, addOriginFruit);
+        System.out.println("Nouveau fruit ajouté : "+catalog.addFruit(newFruit));
     }
-
     public void addNewProductVeggie(Scanner sc, Catalog catalog){
-
-        String addNewVeggie;
-
+        String addLabelVeggie;
+        String addOriginVeggie;
         System.out.println("Indiquez le nom du légume à ajouter au catalogue :");
-        addNewVeggie = sc.next();
-        System.out.println("Nouveau légume ajouté : "+catalog.addVeggie(addNewVeggie));
-
+        addLabelVeggie = sc.next();
+        System.out.println("Indiquez l'origine du légume à ajouter au catalogue :");
+        addOriginVeggie = sc.next();
+        Veggie newVeggie = new Veggie(addLabelVeggie, addOriginVeggie);
+        System.out.println("Nouveau l?gume ajout? : "+catalog.addVeggie(newVeggie));
     }
-
     public void deleteProductFruit(Scanner sc, Catalog catalog){
-
-        String nameFruitToDelete;
-
+        int indexFruitToDelete;
         System.out.println("Indiquez le nom du fruit que vous souhaitez supprimer :");
-        nameFruitToDelete = sc.next();
-        catalog.removeFruit(nameFruitToDelete);
+        indexFruitToDelete = sc.nextInt();
+        Fruit fruitToDelete = catalog.getOneFruit(indexFruitToDelete);
+        catalog.removeFruit(fruitToDelete);
         System.out.println("Ce fruit a bien été supprimé!");
     }
 
+
+
     public void deleteProductVeggie(Scanner sc, Catalog catalog){
-        String nameVeggieToDelete;
 
-        System.out.println("Indiquez le nom du légume que vous souhaitez supprimer :");
-        nameVeggieToDelete = sc.next();
-        catalog.removeVeggie(nameVeggieToDelete);
-        System.out.println("Ce légume a bien été supprimé!");
+        System.out.println("Indiquez le numéro du légume que vous souhaitez supprimer :");
+        int userInput = sc.nextInt();
+        Veggie dlVeggie = catalog.getOneVeggie(userInput);
+        System.out.println(dlVeggie.toString());
+
+
+        catalog.removeVeggie(userInput);
+        System.out.println("Légume supprimé!");
     }
-
-
 }
-
-
