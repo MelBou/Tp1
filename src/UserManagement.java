@@ -73,9 +73,9 @@ public class UserManagement {
         return newUser;
     }
 
-//    public User deleteUser (User deleteUser){
-//        this.userList.remove();
-//    }
+    public void deleteUser (String key){
+        this.userList.remove(key);
+    }
 
 
 }

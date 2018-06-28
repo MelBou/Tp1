@@ -31,7 +31,7 @@ public class Admin extends User {
                     modifyUser(sc, userManagement);
                     return true;
                 case 6:
-                    //méthode deleteUser
+                    deleteUser(sc, userManagement);
                     return true;
                 case 7 :
                     userManagement.getUserList();
@@ -92,12 +92,12 @@ public class Admin extends User {
             System.out.println("Nouvel utilisateur ajouté : " + userManagement.addUser(newUser));
         }
     }
-    
+
 
     public void modifyUser(Scanner sc, UserManagement userManagement){
         String whichUserToModify;
         userManagement.getUserList();
-        System.out.println("Indiquez le numéro de l'utilisateur à supprimer : ");
+        System.out.println("Indiquez le login de l'utilisateur à supprimer : ");
         whichUserToModify = sc.next();
         User chosenUser = userManagement.getOneUser(whichUserToModify);
         System.out.println("Utilisateur à modifier : "+chosenUser+"\n");
@@ -125,6 +125,15 @@ public class Admin extends User {
         System.out.println("Le profil a bien été mis à jour : "+chosenUser);
     }
 
+    public void deleteUser(Scanner sc, UserManagement userManagement){
+        String userLoginToDelete;
+        userManagement.getUserList();
+        System.out.println("Indiquez le login de l'utilisateur que vous souhaitez supprimer :");
+        userLoginToDelete = sc.next();
+        userManagement.getOneUser(userLoginToDelete);
+        userManagement.deleteUser(userLoginToDelete);
+        System.out.println("Cet utilisateur a bien été supprimé!");
+    }
 
 
 
