@@ -138,8 +138,6 @@ public class Commercial extends User {
         int userInput = sc.nextInt();
         Product dlVeggie = catalog.getOneVeggie(userInput);
         System.out.println(dlVeggie.toString());
-
-
         catalog.removeVeggie(userInput);
         System.out.println("Légume supprimé!");
     }

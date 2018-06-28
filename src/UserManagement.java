@@ -73,5 +73,9 @@ public class UserManagement {
         return newUser;
     }
 
+//    public User deleteUser (User deleteUser){
+//        this.userList.remove();
+//    }
+
 
 }

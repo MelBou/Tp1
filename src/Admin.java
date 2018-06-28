@@ -51,20 +51,20 @@ public class Admin extends User {
 
         switch (choiceToAdd){
             case 1:
-                this.addNewAdmin(sc, userManagement);
+                this.addNewUser(sc, userManagement, "admin");
                 break;
             case 2:
-                this.addNewClient(sc, userManagement);
+                this.addNewUser(sc, userManagement, "client");
                 break;
             case 3:
-                this.addNewCommercial(sc, userManagement);
+                this.addNewUser(sc, userManagement, "commercial");
                 break;
             default:
                 System.out.println("Oops");
         }
     }
 
-    public void addNewAdmin(Scanner sc, UserManagement userManagement){
+    public void addNewUser(Scanner sc, UserManagement userManagement, String typeUser) {
         String addFirstname;
         String addName;
         String addTown;
@@ -81,52 +81,18 @@ public class Admin extends User {
         System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
         addPassword = sc.next();
 
-        User newUser = new Admin (addFirstname, addName, addTown, addLogin, addPassword);
-        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
+        if (typeUser.equals("admin")) {
+            User newUser = new Admin(addFirstname, addName, addTown, addLogin, addPassword);
+            System.out.println("Nouvel utilisateur ajouté : " + userManagement.addUser(newUser));
+        } else if (typeUser.equals("client")) {
+            User newUser = new Client(addFirstname, addName, addTown, addLogin, addPassword);
+            System.out.println("Nouvel utilisateur ajouté : " + userManagement.addUser(newUser));
+        } else if (typeUser.equals("commercial")) {
+            User newUser = new Commercial(addFirstname, addName, addTown, addLogin, addPassword);
+            System.out.println("Nouvel utilisateur ajouté : " + userManagement.addUser(newUser));
+        }
     }
-
-    public void addNewClient(Scanner sc, UserManagement userManagement){
-        String addFirstname;
-        String addName;
-        String addTown;
-        String addLogin;
-        String addPassword;
-        System.out.println("Indiquez le prénom de l'utilisateur à ajouter");
-        addFirstname = sc.next();
-        System.out.println("Indiquez le nom de l'utilisateur à ajouter");
-        addName = sc.next();
-        System.out.println("Indiquez la ville de l'utilisateur à ajouter");
-        addTown = sc.next();
-        System.out.println("Indiquez le login de l'utilisateur à ajouter");
-        addLogin = sc.next();
-        System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
-        addPassword = sc.next();
-
-        User newUser = new Client (addFirstname, addName, addTown, addLogin, addPassword);
-        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
-    }
-
-    public void addNewCommercial(Scanner sc, UserManagement userManagement){
-        String addFirstname;
-        String addName;
-        String addTown;
-        String addLogin;
-        String addPassword;
-        System.out.println("Indiquez le prénom de l'utilisateur à ajouter");
-        addFirstname = sc.next();
-        System.out.println("Indiquez le nom de l'utilisateur à ajouter");
-        addName = sc.next();
-        System.out.println("Indiquez la ville de l'utilisateur à ajouter");
-        addTown = sc.next();
-        System.out.println("Indiquez le login de l'utilisateur à ajouter");
-        addLogin = sc.next();
-        System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
-        addPassword = sc.next();
-
-        User newUser = new Commercial (addFirstname, addName, addTown, addLogin, addPassword);
-        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
-    }
-
+    
 
     public void modifyUser(Scanner sc, UserManagement userManagement){
         String whichUserToModify;
