@@ -2,13 +2,16 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class UserManagement {
+    private HashMap<String, User> userList;
+
+
     public HashMap<String, User> loadUsers() {
         User user1 = new Admin("Jean", "Bon", "Aoste", "123", "456");
         User user2 = new Client("Abby", "Gael", "Cardiff", "456", "456");
         User user3 = new Commercial("Richard", "Dassault", "Leclerc", "789", "789");
 
 
-        HashMap<String, User> userList = new HashMap<>();
+        userList = new HashMap<>();
         userList.put("123", user1);
         userList.put("456", user2);
         userList.put("789", user3);
@@ -48,4 +51,27 @@ public class UserManagement {
         } while (loginFailed);
         return userConnecte;
     }
+
+    public void getUserList(){
+        System.out.println(userList.values());
+    }
+
+    public User getOneUser(String login){
+        User result = null;
+
+        try {
+            result = userList.get(login);
+        } catch (ArrayIndexOutOfBoundsException i) {
+            System.out.println("Choix non valide. Cet utilisateur n'existe pas.");
+        }
+
+        return result;
+    }
+
+    public User addUser(User newUser){
+        this.userList.put(newUser.getLogin(),newUser);
+        return newUser;
+    }
+
+
 }

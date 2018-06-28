@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class User {
+public abstract class User {
 
     private String firstname;
     private String name;
@@ -20,7 +20,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Utilisateur actuellement connecté : " +
+        return "\n\n Utilisateur  : " +
                 "\n Prénom : " + firstname +
                 "\n Name : " + name +
                 "\n Ville : " + town  +
@@ -50,11 +50,6 @@ public class User {
     public String getTown(){
 
         return town;
-    }
-
-    public String getAllInfos(String firstname, String name, String town){
-        String infos = firstname+name+town;
-        return infos;
     }
 
     public void setTown(String town){
@@ -122,7 +117,7 @@ public class User {
                     return true;
 
                 case 1:
-                    System.out.println(this.toString());
+                    System.out.println("Utilisateur actuellement connecté : "+this.toString());
                     return true;
                 case 2:
                     System.out.println("Indiquez vos nouvelles données personnelles : ");

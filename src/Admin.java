@@ -15,6 +15,7 @@ public class Admin extends User {
         System.out.println("4 --- Créer un utilisateur");
         System.out.println("5 --- Modifier les informations d'un utilisateur");
         System.out.println("6 --- Supprimer un utilisateur");
+        System.out.println("7 --- Afficher la liste des utilisateurs");
         System.out.println("-------------------------------------------------");
     }
 
@@ -27,10 +28,13 @@ public class Admin extends User {
                     addUser(sc, userManagement);
                     return true;
                 case 5:
-                    //méthode modifyUser
+                    modifyUser(sc, userManagement);
                     return true;
                 case 6:
                     //méthode deleteUser
+                    return true;
+                case 7 :
+                    userManagement.getUserList();
                     return true;
             } else {
             return true;
@@ -61,15 +65,98 @@ public class Admin extends User {
     }
 
     public void addNewAdmin(Scanner sc, UserManagement userManagement){
+        String addFirstname;
+        String addName;
+        String addTown;
+        String addLogin;
+        String addPassword;
+        System.out.println("Indiquez le prénom de l'utilisateur à ajouter");
+        addFirstname = sc.next();
+        System.out.println("Indiquez le nom de l'utilisateur à ajouter");
+        addName = sc.next();
+        System.out.println("Indiquez la ville de l'utilisateur à ajouter");
+        addTown = sc.next();
+        System.out.println("Indiquez le login de l'utilisateur à ajouter");
+        addLogin = sc.next();
+        System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
+        addPassword = sc.next();
 
+        User newUser = new Admin (addFirstname, addName, addTown, addLogin, addPassword);
+        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
     }
 
     public void addNewClient(Scanner sc, UserManagement userManagement){
+        String addFirstname;
+        String addName;
+        String addTown;
+        String addLogin;
+        String addPassword;
+        System.out.println("Indiquez le prénom de l'utilisateur à ajouter");
+        addFirstname = sc.next();
+        System.out.println("Indiquez le nom de l'utilisateur à ajouter");
+        addName = sc.next();
+        System.out.println("Indiquez la ville de l'utilisateur à ajouter");
+        addTown = sc.next();
+        System.out.println("Indiquez le login de l'utilisateur à ajouter");
+        addLogin = sc.next();
+        System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
+        addPassword = sc.next();
 
+        User newUser = new Client (addFirstname, addName, addTown, addLogin, addPassword);
+        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
     }
 
     public void addNewCommercial(Scanner sc, UserManagement userManagement){
+        String addFirstname;
+        String addName;
+        String addTown;
+        String addLogin;
+        String addPassword;
+        System.out.println("Indiquez le prénom de l'utilisateur à ajouter");
+        addFirstname = sc.next();
+        System.out.println("Indiquez le nom de l'utilisateur à ajouter");
+        addName = sc.next();
+        System.out.println("Indiquez la ville de l'utilisateur à ajouter");
+        addTown = sc.next();
+        System.out.println("Indiquez le login de l'utilisateur à ajouter");
+        addLogin = sc.next();
+        System.out.println("Indiquez le mot de passe de l'utilisateur à ajouter");
+        addPassword = sc.next();
 
+        User newUser = new Commercial (addFirstname, addName, addTown, addLogin, addPassword);
+        System.out.println("Nouvel utilisateur ajouté : "+userManagement.addUser(newUser));
+    }
+
+
+    public void modifyUser(Scanner sc, UserManagement userManagement){
+        String whichUserToModify;
+        userManagement.getUserList();
+        System.out.println("Indiquez le numéro de l'utilisateur à supprimer : ");
+        whichUserToModify = sc.next();
+        User chosenUser = userManagement.getOneUser(whichUserToModify);
+        System.out.println("Utilisateur à modifier : "+chosenUser+"\n");
+
+        System.out.println("Indiquez le nouveau prénom :");
+        String replacementFirstname = sc.next();
+        chosenUser.setFirstname(replacementFirstname);
+
+        System.out.println("Indiquez le nouveau nom : ");
+        String replacementName = sc.next();
+        chosenUser.setName(replacementName);
+
+        System.out.println("Indiquez la nouvelle ville : ");
+        String replacementTown = sc.next();
+        chosenUser.setTown(replacementTown);
+
+        System.out.println("Indiquez le nouveau login : ");
+        String replacementLogin = sc.next();
+        chosenUser.setLogin(replacementLogin);
+
+        System.out.println("Indiquez le nouveau mot de passe : ");
+        String replacementPassword = sc.next();
+        chosenUser.setPassword(replacementPassword);
+
+        System.out.println("Le profil a bien été mis à jour : "+chosenUser);
     }
 
 
