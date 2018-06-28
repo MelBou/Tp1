@@ -6,7 +6,7 @@ public class UserManagement {
         User user1 = new Admin("Jean", "Bon", "Aoste", "123", "456");
         User user2 = new Client("Abby", "Gael", "Cardiff", "456", "456");
         User user3 = new Commercial("Richard", "Dassault", "Leclerc", "789", "789");
-        
+
 
         HashMap<String, User> userList = new HashMap<>();
         userList.put("123", user1);

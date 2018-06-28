@@ -18,6 +18,15 @@ public class User {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "Utilisateur actuellement connecté : " +
+                "\n Prénom : " + firstname +
+                "\n Name : " + name +
+                "\n Ville : " + town  +
+                "\n Login : " + login;
+    }
+
     public String getFirstname(){
 
         return firstname;
@@ -41,6 +50,11 @@ public class User {
     public String getTown(){
 
         return town;
+    }
+
+    public String getAllInfos(String firstname, String name, String town){
+        String infos = firstname+name+town;
+        return infos;
     }
 
     public void setTown(String town){
@@ -70,11 +84,12 @@ public class User {
 
 
 
-    public void menu(Catalog catalog){
+
+    public void menu(Catalog catalog, UserManagement userManagement){
         Scanner sc = new Scanner(System.in);
         this.showMenu();
         int answer = readInput(sc);
-        boolean status = handleAction(sc, answer, catalog);
+        boolean status = handleAction(sc, answer, catalog, userManagement);
         if (!status){
             System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
             System.out.println(" ");
@@ -91,7 +106,7 @@ public class User {
         System.out.println("3 --- Afficher les produits de notre catalogue");
     }
 
-    protected boolean handleAction(Scanner sc, int answer, Catalog catalog) {
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement) {
         String loginDeMerde;
         String mdpDeMerde;
 
@@ -107,8 +122,7 @@ public class User {
                     return true;
 
                 case 1:
-                    System.out.println("Vos données personnelles : ");
-                    System.out.println(this.getFirstname() + " " + this.getName() + " de " + this.getTown());
+                    System.out.println(this.toString());
                     return true;
                 case 2:
                     System.out.println("Indiquez vos nouvelles données personnelles : ");

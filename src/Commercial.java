@@ -15,9 +15,9 @@ public class Commercial extends User {
         System.out.println("-------------------------------------------------");
     }
     @Override
-    protected boolean handleAction(Scanner sc, int answer, Catalog catalog) {
-        super.handleAction(sc, answer, catalog);
-        if (!super.handleAction(sc, answer, catalog))
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement) {
+        super.handleAction(sc, answer, catalog, userManagement);
+        if (!super.handleAction(sc, answer, catalog, userManagement))
         switch (answer){
             case 4:
                 addProduct(sc, catalog);
@@ -82,7 +82,7 @@ public class Commercial extends User {
         String addOriginFruit;
         System.out.println("Indiquez le nom du fruit à ajouter au catalogue :");
         addLabelFruit = sc.next();
-        System.out.println("Indiquez le nom du fruit à ajouter au catalogue :");
+        System.out.println("Indiquez l'origine du fruit à ajouter au catalogue :");
         addOriginFruit = sc.next();
         Fruit newFruit = new Fruit(addLabelFruit, addOriginFruit);
         System.out.println("Nouveau fruit ajouté : "+catalog.addFruit(newFruit));
@@ -112,7 +112,7 @@ public class Commercial extends User {
     }
     public void modifyProductVeggie(Scanner sc, Catalog catalog) {
         int whichVeggieToModify;
-        System.out.println("Indiquez le num?ro du produit (légume) que vous souhaitez modifier");
+        System.out.println("Indiquez le numéro du produit (légume) que vous souhaitez modifier");
         whichVeggieToModify = sc.nextInt();
         Product veggieGotBack = catalog.getOneVeggie(whichVeggieToModify);
         System.out.println(veggieGotBack);

@@ -9,18 +9,18 @@ public class Main {
 
 
 
-        UserManagement Users = new UserManagement();
+        UserManagement userManagement = new UserManagement();
 
-        Users.loadUsers();
+        userManagement.loadUsers();
 
         Scanner sc = new Scanner(System.in);
-        User userConnecte = UserManagement.connectUser(sc,Users.loadUsers());
+        User userConnecte = UserManagement.connectUser(sc,userManagement.loadUsers());
 
         Catalog catalog = new Catalog();
 
         if(userConnecte!=null) {
             do {
-                userConnecte.menu(catalog);
+                userConnecte.menu(catalog, userManagement);
             } while (userConnecte != null);
         }
 

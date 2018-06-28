@@ -7,11 +7,9 @@ public class Fruit extends Product {
     }
 
     public String toString() {
-        return "Veggie{" +
-                "label='" + label + '\'' +
-                ", origin='" + origin + '\'' +
-                '}';
-    }
+            return "Nom = '" + label + '\'' +
+                    "; Origine = '" + origin + '\'';
+        }
 
     public void setLabel(String label) {
         this.label = label;

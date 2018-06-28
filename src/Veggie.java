@@ -1,10 +1,8 @@
 public class Veggie extends Product{
     @Override
     public String toString() {
-        return "Veggie{" +
-                "label='" + label + '\'' +
-                ", origin='" + origin + '\'' +
-                '}';
+        return "Nom = '" + label + '\'' +
+                "; Origine = '" + origin + '\'';
     }
 
     public Veggie(String label, String origin){
