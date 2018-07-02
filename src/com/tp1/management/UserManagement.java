@@ -1,3 +1,10 @@
+package com.tp1.management;
+
+import com.tp1.users.Admin;
+import com.tp1.users.Client;
+import com.tp1.users.Commercial;
+import com.tp1.users.User;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -19,7 +26,7 @@ public class UserManagement {
 
     }
 
-    protected static User connectUser(Scanner sc, HashMap<String, User> userList) {
+    public static User connectUser(Scanner sc, HashMap<String, User> userList) {
         /**
          * Connexion de l'utilisateur :
          * Vérification : présence du login dans la base de données.

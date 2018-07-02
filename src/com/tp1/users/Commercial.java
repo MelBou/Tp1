@@ -1,3 +1,13 @@
+package com.tp1.users;
+
+import com.tp1.management.Basket;
+import com.tp1.management.Catalog;
+import com.tp1.management.UserManagement;
+import com.tp1.products.Fruit;
+import com.tp1.products.Product;
+import com.tp1.products.Veggie;
+
+
 import java.util.Scanner;
 public class Commercial extends User {
 
@@ -15,9 +25,10 @@ public class Commercial extends User {
         System.out.println("-------------------------------------------------");
     }
     @Override
-    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement) {
-        super.handleAction(sc, answer, catalog, userManagement);
-        if (!super.handleAction(sc, answer, catalog, userManagement))
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement, Basket basket) {
+        if (super.handleAction(sc, answer, catalog, userManagement, basket)) {
+            return true;
+        }
         switch (answer){
             case 4:
                 addProduct(sc, catalog);
@@ -95,7 +106,7 @@ public class Commercial extends User {
         System.out.println("Indiquez l'origine du légume à ajouter au catalogue :");
         addOriginVeggie = sc.next();
         Veggie newVeggie = new Veggie(addLabelVeggie, addOriginVeggie);
-        System.out.println("Nouveau légume ajout? : "+catalog.addVeggie(newVeggie));
+        System.out.println("Nouveau légume ajouté : "+catalog.addVeggie(newVeggie));
     }
 
     public void modifyProductFruit(Scanner sc, Catalog catalog) {

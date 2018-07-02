@@ -1,5 +1,10 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+package com.tp1;
+
+import com.tp1.management.Catalog;
+import com.tp1.management.Basket;
+import com.tp1.management.UserManagement;
+import com.tp1.users.User;
+
 import java.util.Scanner;
 
 
@@ -10,7 +15,7 @@ public class Main {
 
 
         UserManagement userManagement = new UserManagement();
-
+        Basket basket = new Basket();
         userManagement.loadUsers();
 
         Scanner sc = new Scanner(System.in);
@@ -18,9 +23,10 @@ public class Main {
 
         Catalog catalog = new Catalog();
 
+
         if(userConnecte!=null) {
             do {
-                userConnecte.menu(catalog, userManagement);
+                userConnecte.menu(catalog, userManagement, basket);
             } while (userConnecte != null);
         }
 

@@ -1,3 +1,4 @@
+package com.tp1.products;
 
 public class Fruit extends Product {
 

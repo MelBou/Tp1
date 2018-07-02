@@ -1,3 +1,9 @@
+package com.tp1.users;
+
+import com.tp1.management.Basket;
+import com.tp1.management.Catalog;
+import com.tp1.management.UserManagement;
+
 import java.util.Scanner;
 
 public class Admin extends User {
@@ -20,8 +26,8 @@ public class Admin extends User {
     }
 
     @Override
-    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement) {
-        boolean handleActionAnswer = super.handleAction(sc, answer, catalog, userManagement);
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement, Basket basket) {
+        boolean handleActionAnswer = super.handleAction(sc, answer, catalog, userManagement, basket);
         if (!handleActionAnswer)
             switch (answer){
                 case 4:

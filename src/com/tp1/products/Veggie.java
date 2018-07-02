@@ -1,3 +1,5 @@
+package com.tp1.products;
+
 public class Veggie extends Product{
     @Override
     public String toString() {

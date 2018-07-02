@@ -1,5 +1,9 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+package com.tp1.users;
+
+import com.tp1.management.Basket;
+import com.tp1.management.Catalog;
+import com.tp1.management.UserManagement;
+
 import java.util.Scanner;
 
 public abstract class User {
@@ -80,11 +84,11 @@ public abstract class User {
 
 
 
-    public void menu(Catalog catalog, UserManagement userManagement){
+    public void menu(Catalog catalog, UserManagement userManagement, Basket basket){
         Scanner sc = new Scanner(System.in);
         this.showMenu();
         int answer = readInput(sc);
-        boolean status = handleAction(sc, answer, catalog, userManagement);
+        boolean status = handleAction(sc, answer, catalog, userManagement, basket);
         if (!status){
             System.out.println("Je n'ai pas compris votre réponse veuillez entrer une donnée valide.");
             System.out.println(" ");
@@ -101,7 +105,7 @@ public abstract class User {
         System.out.println("3 --- Afficher les produits de notre catalogue");
     }
 
-    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement) {
+    protected boolean handleAction(Scanner sc, int answer, Catalog catalog, UserManagement userManagement, Basket basket) {
         String loginDeMerde;
         String mdpDeMerde;
 

@@ -1,3 +1,5 @@
+package com.tp1.products;
+
 public class Product {
 
     protected String label;

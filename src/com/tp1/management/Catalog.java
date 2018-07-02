@@ -1,3 +1,9 @@
+package com.tp1.management;
+
+import com.tp1.products.Fruit;
+import com.tp1.products.Product;
+import com.tp1.products.Veggie;
+
 import java.util.ArrayList;
 
 public class Catalog {
