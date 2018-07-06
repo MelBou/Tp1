@@ -26,6 +26,7 @@ public class UserManagement {
 
     }
 
+    
     public static User connectUser(Scanner sc, HashMap<String, User> userList) {
         /**
          * Connexion de l'utilisateur :

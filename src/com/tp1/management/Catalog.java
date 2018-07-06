@@ -1,5 +1,8 @@
 package com.tp1.management;
 
+import com.tp1.DB.ConnectToDB;
+import com.tp1.DB.FruitDAO;
+import com.tp1.DB.VeggieDAO;
 import com.tp1.products.Fruit;
 import com.tp1.products.Product;
 import com.tp1.products.Veggie;
@@ -20,30 +23,36 @@ public class Catalog {
     private void listFruits() {
 
         fruits = new ArrayList<>();
-        fruits.add(new Fruit("Abricot", "France"));
-        fruits.add(new Fruit("Ananas", "France"));
-        fruits.add(new Fruit("Bananes", "France"));
-        fruits.add(new Fruit("Citrons", "France"));
-        fruits.add(new Fruit("Fruits de la passion", "France"));
-        fruits.add(new Fruit("Grenades", "France"));
-        fruits.add(new Fruit("Kiwis", "France"));
-        fruits.add(new Fruit("Poires", "France"));
-        fruits.add(new Fruit("Pommes", "France"));
+//        fruits.add(new Fruit("Abricot", "France"));
+//        fruits.add(new Fruit("Ananas", "France"));
+//        fruits.add(new Fruit("Bananes", "France"));
+//        fruits.add(new Fruit("Citrons", "France"));
+//        fruits.add(new Fruit("Fruits de la passion", "France"));
+//        fruits.add(new Fruit("Grenades", "France"));
+//        fruits.add(new Fruit("Kiwis", "France"));
+//        fruits.add(new Fruit("Poires", "France"));
+//        fruits.add(new Fruit("Pommes", "France"));
+
+        FruitDAO fruitDAO = new FruitDAO(ConnectToDB.getInstance());
+        fruits = fruitDAO.loadListOfFruits();
 
     }
 
     private void veggiesList() {
         veggies = new ArrayList<>();
-        veggies.add(new Veggie("Artichauts", "France"));
-        veggies.add(new Veggie("Asperges", "France"));
-        veggies.add(new Veggie("Aubergine", "France"));
-        veggies.add(new Veggie("Celeris", "France"));
-        veggies.add(new Veggie("Choux", "France"));
-        veggies.add(new Veggie("Courges", "France"));
-        veggies.add(new Veggie("Haricots", "France"));
-        veggies.add(new Veggie("Laitues", "France"));
-        veggies.add(new Veggie("Radis", "France"));
-        veggies.add(new Veggie("Artichauts", "France"));
+//        veggies.add(new Veggie("Artichauts", "France"));
+//        veggies.add(new Veggie("Asperges", "France"));
+//        veggies.add(new Veggie("Aubergine", "France"));
+//        veggies.add(new Veggie("Celeris", "France"));
+//        veggies.add(new Veggie("Choux", "France"));
+//        veggies.add(new Veggie("Courges", "France"));
+//        veggies.add(new Veggie("Haricots", "France"));
+//        veggies.add(new Veggie("Laitues", "France"));
+//        veggies.add(new Veggie("Radis", "France"));
+//        veggies.add(new Veggie("Artichauts", "France"));
+
+        VeggieDAO veggieDAO = new VeggieDAO(ConnectToDB.getInstance());
+        veggies = veggieDAO.loadListOfVeggies();
     }
 
     public void getFruits() {

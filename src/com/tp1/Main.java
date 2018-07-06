@@ -1,5 +1,6 @@
 package com.tp1;
 
+import com.tp1.DB.ConnectToDB;
 import com.tp1.management.Catalog;
 import com.tp1.management.Basket;
 import com.tp1.management.UserManagement;
@@ -11,6 +12,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args){
+
+        ConnectToDB.getInstance();
 
 
 

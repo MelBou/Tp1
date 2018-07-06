@@ -1,6 +1,6 @@
 package com.tp1.products;
 
-public class Product {
+public abstract class Product {
 
     protected String label;
     protected String origin;
