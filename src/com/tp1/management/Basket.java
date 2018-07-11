@@ -15,12 +15,18 @@ public class Basket {
         basketContent();
     }
 
+    /**
+     * User's basket content
+     */
     public void basketContent(){
 
         basket = new HashMap<>();
 
     }
 
+    /**
+     * display the user's basket content
+     */
     public void displayBasketContent(){
             int index = 0;
             for (Map.Entry<Product, Integer> e : basket.entrySet()) {
@@ -40,11 +46,22 @@ public class Basket {
     }
 
 
+    /**
+     *
+     * @param newItemToBasket
+     * @param quantity
+     * @return add an item to the basket
+     */
     public Product addToBasket(Product newItemToBasket, Integer quantity){
         this.basket.put(newItemToBasket, quantity);
         return newItemToBasket;
     }
 
+    /**
+     *
+     * @param productToDelete
+     * Remove an item to the basket
+     */
     public void removeProductFromBasket(Product productToDelete) {
         this.basket.remove(productToDelete);
     }

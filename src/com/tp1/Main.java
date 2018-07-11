@@ -8,7 +8,12 @@ import com.tp1.users.User;
 
 import java.util.Scanner;
 
-
+/**
+ * Connection to the DB
+ * Instantiation of classes : UserManagement, Basket, Scanner, Catalog
+ * Load users created in the User Class
+ * If the user is connected (= login and password checked), the menu is displayed
+ */
 public class Main {
 
     public static void main(String[] args){

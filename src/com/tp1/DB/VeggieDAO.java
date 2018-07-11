@@ -19,6 +19,10 @@ public class VeggieDAO {
 
     }
 
+    /**
+     * DAO Veggies
+     * @return load list of veggies
+     */
     public ArrayList<Product> loadListOfVeggies(){
         Statement state;
         ArrayList<Product> loadListOfVeggies = new ArrayList<>();

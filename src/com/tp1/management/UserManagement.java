@@ -8,6 +8,12 @@ import com.tp1.users.User;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Users : creation of 3 users (Admin, Client and Commercial),
+ * To connect : we check if the login exists, if it exists we check the password. If pw ok, the user is connected
+ * Methods to display the list of users, get one user from the list, add and delete a user
+ *
+ */
 public class UserManagement {
     private HashMap<String, User> userList;
 
@@ -26,14 +32,14 @@ public class UserManagement {
 
     }
 
-    
+    /**
+     * Connexion de l'utilisateur :
+     * Vérification : présence du login dans la base de données.
+     * Vérification : mot de passe correct.
+     * Affichage du menu selon le statut de l'utilisateur (admin, client, commercial).
+     */
     public static User connectUser(Scanner sc, HashMap<String, User> userList) {
-        /**
-         * Connexion de l'utilisateur :
-         * Vérification : présence du login dans la base de données.
-         * Vérification : mot de passe correct.
-         * Affichage du menu selon le statut de l'utilisateur (admin, client, commercial).
-         */
+
         User userConnecte = null;
         String loginDeMerde;
         String mdpDeMerde;

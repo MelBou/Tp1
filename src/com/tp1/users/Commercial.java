@@ -9,6 +9,12 @@ import com.tp1.products.Veggie;
 
 
 import java.util.Scanner;
+
+/**
+ * Commercial's menu
+ * Handle Action
+ * Add/Modify/Delete one product from the list of products (veggies or fruits)
+ */
 public class Commercial extends User {
 
     public Commercial(String firstname, String name, String town, String login, String password){

@@ -9,6 +9,9 @@ import com.tp1.products.Veggie;
 
 import java.util.ArrayList;
 
+/**
+ * Handle all products (display the products list, rename/remove/add products)
+ */
 public class Catalog {
     private ArrayList<Product> fruits;
     private ArrayList<Product> veggies;
@@ -19,7 +22,9 @@ public class Catalog {
         veggiesList();
     }
 
-
+    /**
+     * List of fruits : DB Tp1 (table : FruitDAO)
+     */
     private void listFruits() {
 
         fruits = new ArrayList<>();
@@ -38,6 +43,9 @@ public class Catalog {
 
     }
 
+    /**
+     * List of veggies : DB Tp1 (table : VeggieDAO)
+     */
     private void veggiesList() {
         veggies = new ArrayList<>();
 //        veggies.add(new Veggie("Artichauts", "France"));

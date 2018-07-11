@@ -16,7 +16,10 @@ public class FruitDAO {
     }
 
 
-
+    /**
+     * DAO Fruits
+     * @return load list of fruits
+     */
     public ArrayList<Product> loadListOfFruits(){
         Statement state;
         ArrayList<Product> loadListOfFruits = new ArrayList<>();

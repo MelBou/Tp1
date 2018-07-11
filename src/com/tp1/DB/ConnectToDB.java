@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * singleton
+ */
 public class ConnectToDB {
 
     private static String url = "jdbc:mariadb://localhost:3306";
@@ -20,6 +23,10 @@ public class ConnectToDB {
 
     }
 
+    /**
+     * Singleton
+     * @return connection to DB
+     */
 
     public static Connection getInstance(){
         if(connect == null){

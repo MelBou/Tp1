@@ -6,9 +6,12 @@ import com.tp1.management.UserManagement;
 
 import java.util.Scanner;
 
+/**
+ * Display admin's menu
+ * Handle action
+ * Add/Modify/Delete a user
+ */
 public class Admin extends User {
-
-    boolean superModo;
 
     public Admin(String firstname, String name, String town, String login, String password){
 

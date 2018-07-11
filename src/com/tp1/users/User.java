@@ -6,6 +6,10 @@ import com.tp1.management.UserManagement;
 
 import java.util.Scanner;
 
+/**
+ * Getters and setters
+ * Menu : show menu, read input and handle action
+ */
 public abstract class User {
 
     private String firstname;

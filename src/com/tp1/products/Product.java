@@ -5,6 +5,12 @@ public abstract class Product {
     protected String label;
     protected String origin;
 
+    /**
+     * Super class : products
+     * Getters and setters
+     * @param label
+     * @param origin
+     */
     public Product(String label, String origin){
         this.label = label;
         this.origin = origin;

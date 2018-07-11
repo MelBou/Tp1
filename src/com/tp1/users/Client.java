@@ -8,6 +8,12 @@ import com.tp1.products.Product;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * Client's menu
+ * Handle Action
+ * Add/Delete a product (veggie or fruit) from the user's basket
+ * Display the user's basket
+ */
 public class Client extends User {
 
     public Client(String firstname, String name, String town, String login, String password){
