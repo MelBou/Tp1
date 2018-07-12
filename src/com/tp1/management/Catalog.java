@@ -3,10 +3,7 @@ package com.tp1.management;
 import com.tp1.DB.ConnectToDB;
 import com.tp1.DB.FruitDAO;
 import com.tp1.DB.VeggieDAO;
-import com.tp1.products.Fruit;
 import com.tp1.products.Product;
-import com.tp1.products.Veggie;
-
 import java.util.ArrayList;
 
 /**
@@ -15,11 +12,12 @@ import java.util.ArrayList;
 public class Catalog {
     private ArrayList<Product> fruits;
     private ArrayList<Product> veggies;
-
+    FruitDAO fruitDAO = new FruitDAO(ConnectToDB.getInstance());
+    VeggieDAO veggieDAO = new VeggieDAO(ConnectToDB.getInstance());
 
     public Catalog(){
-        listFruits();
-        veggiesList();
+//        listFruits();
+  //      veggiesList();
     }
 
     /**
@@ -28,108 +26,87 @@ public class Catalog {
     private void listFruits() {
 
         fruits = new ArrayList<>();
-//        fruits.add(new Fruit("Abricot", "France"));
-//        fruits.add(new Fruit("Ananas", "France"));
-//        fruits.add(new Fruit("Bananes", "France"));
-//        fruits.add(new Fruit("Citrons", "France"));
-//        fruits.add(new Fruit("Fruits de la passion", "France"));
-//        fruits.add(new Fruit("Grenades", "France"));
-//        fruits.add(new Fruit("Kiwis", "France"));
-//        fruits.add(new Fruit("Poires", "France"));
-//        fruits.add(new Fruit("Pommes", "France"));
 
-        FruitDAO fruitDAO = new FruitDAO(ConnectToDB.getInstance());
         fruits = fruitDAO.loadListOfFruits();
 
     }
+
 
     /**
      * List of veggies : DB Tp1 (table : VeggieDAO)
      */
     private void veggiesList() {
         veggies = new ArrayList<>();
-//        veggies.add(new Veggie("Artichauts", "France"));
-//        veggies.add(new Veggie("Asperges", "France"));
-//        veggies.add(new Veggie("Aubergine", "France"));
-//        veggies.add(new Veggie("Celeris", "France"));
-//        veggies.add(new Veggie("Choux", "France"));
-//        veggies.add(new Veggie("Courges", "France"));
-//        veggies.add(new Veggie("Haricots", "France"));
-//        veggies.add(new Veggie("Laitues", "France"));
-//        veggies.add(new Veggie("Radis", "France"));
-//        veggies.add(new Veggie("Artichauts", "France"));
 
-        VeggieDAO veggieDAO = new VeggieDAO(ConnectToDB.getInstance());
         veggies = veggieDAO.loadListOfVeggies();
     }
 
     public void getFruits() {
-        for (int i = 0; i < fruits.size(); i++) {
-            System.out.println(i+" --- "+fruits.get(i));
+        for(Product p : fruitDAO.loadListOfFruits() ){
+            System.out.println(p);
         }
     }
 
 
 
     public void getVeggies() {
-        for (int i = 0; i < veggies.size(); i++) {
-            System.out.println(i+" --- "+veggies.get(i));
+        for (Product p : veggieDAO.loadListOfVeggies()) {
+            System.out.println(p);
         }
     }
 
-    public Product getOneFruit(int index) {
+    public Product getOneFruit(int id) {
 
         Product result = null;
 
         try {
-            result = fruits.get(index);
-        } catch (ArrayIndexOutOfBoundsException i) {
-            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 0 et " + fruits.size());
+            result = fruitDAO.loadListOfFruits().get(id-1);
+        } catch (IndexOutOfBoundsException i) {
+            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 1 et " + fruitDAO.loadListOfFruits().size());
         }
         return result;
     }
 
 
 
-    public Product getOneVeggie(int index){
-        Veggie result = null;
+    public Product getOneVeggie(int id){
+        Product result = null;
 
         try {
-            result = (Veggie)veggies.get(index);
-        } catch (ArrayIndexOutOfBoundsException i) {
-            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 0 et " + veggies.size());
+            result = veggieDAO.loadListOfVeggies().get(id-1);
+        } catch (IndexOutOfBoundsException i) {
+            System.out.println("Choix non valide. Veuillez choisir un chiffre entre 1 et " + veggieDAO.loadListOfVeggies().size());
         }
         return result;
     }
 
     public void renameFruit(Product newName, int index){
 
-        fruits.set(index, newName);
+        fruitDAO.modifyFruitFromDB(index, newName);
     }
 
     public void renameVeggie(Product newName, int index){
 
-        veggies.set(index, newName);
+        veggieDAO.modifyVeggieFromDB(index, newName);
     }
 
-    public Fruit addFruit(Fruit newFruit){
-        this.fruits.add(newFruit);
+    public Product addFruit(Product newFruit){
+        fruitDAO.addFruitToDB(newFruit);
         return newFruit;
     }
 
-    public Veggie addVeggie(Veggie newVeggie){
-        this.veggies.add(newVeggie);
+    public Product addVeggie(Product newVeggie){
+        veggieDAO.addVeggieToDB(newVeggie);
         return newVeggie;
     }
 
     public void removeFruit(Product fruitToDelete){
-
-        this.fruits.remove(fruitToDelete);
+        fruitDAO.deleteFruitFromDB(fruitToDelete);
     }
 
-    public void removeVeggie(int veggieToDelete){
+    public void removeVeggie(Product veggieToDelete){
 
-        this.veggies.remove(veggieToDelete);
+        veggieDAO.deleteVeggieFromDB(veggieToDelete);
     }
 
 

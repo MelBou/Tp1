@@ -1,15 +1,17 @@
 package com.tp1.products;
 
 public class Veggie extends Product{
-    @Override
-    public String toString() {
-        return "Nom = '" + label + '\'' +
-                "; Origine = '" + origin + '\'';
+
+    public Veggie(Integer id, String label, String origin){
+        super(id, label, origin);
+
     }
 
-    public Veggie(String label, String origin){
-        super(label, origin);
-
+    @Override
+    public String toString() {
+        return "---" + id +
+                "\tNom : " + label +
+                ", \tOrigine : " + origin;
     }
 
     public void setLabel(String label) {

@@ -25,12 +25,13 @@ public class FruitDAO {
         ArrayList<Product> loadListOfFruits = new ArrayList<>();
         try {
             state = connect.createStatement();
-            ResultSet result = state.executeQuery("SELECT label, origin FROM Tp1.FruitDAO");
+            ResultSet result = state.executeQuery("SELECT id, label, origin FROM Tp1.FruitDAO");
             while(result.next()){
-                String label=result.getObject(1).toString();
-                String origin=result.getObject(2).toString();
+                Integer id=result.getInt(1);
+                String label=result.getObject(2).toString();
+                String origin=result.getObject(3).toString();
 
-                loadListOfFruits.add(new Fruit(label, origin));
+                loadListOfFruits.add(new Fruit(id, label, origin));
             }
             result.close();
             state.close();
@@ -40,29 +41,47 @@ public class FruitDAO {
         return loadListOfFruits;
     }
 
+    public void addFruitToDB(Product newFruit){
 
-//    public Fruit find(int id) {
-//        Fruit fruit = new Fruit();
-//
-//
-//
-//    try{
-//        ResultSet result = this.connect.createStatement(
-//
-//                ResultSet.TYPE_SCROLL_INSENSITIVE,
-//
-//                ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM Tp1.FruitDAO WHERE id = " + id);
-//
-//        if(result.first())
-//            fruit = new Fruit(
-//                    id,
-//                    result.getString("label"),
-//
-//                    result.getString("origin"
-//                    ));
-//    } catch (SQLException e){
-//        e.printStackTrace();
-//    }
-//        return fruit;
-//    }
+        try{
+            PreparedStatement prepare = connect.prepareStatement("INSERT INTO Tp1.FruitDAO (label, origin) VALUES (?, ?)");
+            prepare.setString(1, newFruit.getLabel());
+            prepare.setString(2, newFruit.getOrigin());
+
+            prepare.executeUpdate();
+
+            prepare.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modifyFruitFromDB(int id, Product fruitToModify){
+        try{
+            PreparedStatement prepare = connect.prepareStatement("UPDATE Tp1.FruitDAO SET label=?, origin=?" + "WHERE id ="+id);
+            prepare.setString(1, fruitToModify.getLabel());
+            prepare.setString(2, fruitToModify.getOrigin());
+
+            prepare.executeUpdate();
+
+            prepare.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteFruitFromDB(Product id){
+        try {
+            PreparedStatement prepare = connect.prepareStatement("DELETE FROM Tp1.FruitDAO WHERE id = ?");
+            prepare.setInt(1,id.getId());
+
+            prepare.executeUpdate();
+            prepare.close();
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }

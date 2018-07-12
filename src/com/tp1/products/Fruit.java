@@ -2,15 +2,17 @@ package com.tp1.products;
 
 public class Fruit extends Product {
 
-    public Fruit(String label, String origin){
-        super(label, origin);
+    public Fruit(Integer id, String label, String origin){
+        super(id, label, origin);
 
     }
 
+    @Override
     public String toString() {
-            return "Nom = '" + label + '\'' +
-                    "; Origine = '" + origin + '\'';
-        }
+        return "---" + id +
+                "\tNom : " + label +
+                ", \tOrigine : " + origin;
+    }
 
     public void setLabel(String label) {
         this.label = label;

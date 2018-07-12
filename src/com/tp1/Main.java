@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        ConnectToDB.getInstance();
+
 
 
 
@@ -34,6 +34,7 @@ public class Main {
 
         if(userConnecte!=null) {
             do {
+                ConnectToDB.getInstance();
                 userConnecte.menu(catalog, userManagement, basket);
             } while (userConnecte != null);
         }

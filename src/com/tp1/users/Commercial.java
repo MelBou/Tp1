@@ -1,5 +1,6 @@
 package com.tp1.users;
 
+import com.tp1.DB.FruitDAO;
 import com.tp1.management.Basket;
 import com.tp1.management.Catalog;
 import com.tp1.management.UserManagement;
@@ -95,23 +96,25 @@ public class Commercial extends User {
     }
 
     public void addNewProductFruit(Scanner sc, Catalog catalog){
+        int id = 0;
         String addLabelFruit;
         String addOriginFruit;
         System.out.println("Indiquez le nom du fruit à ajouter au catalogue :");
         addLabelFruit = sc.next();
         System.out.println("Indiquez l'origine du fruit à ajouter au catalogue :");
         addOriginFruit = sc.next();
-        Fruit newFruit = new Fruit(addLabelFruit, addOriginFruit);
+        Product newFruit = new Fruit(id, addLabelFruit, addOriginFruit);
         System.out.println("Nouveau fruit ajouté : "+catalog.addFruit(newFruit));
     }
     public void addNewProductVeggie(Scanner sc, Catalog catalog){
+        int id = 0;
         String addLabelVeggie;
         String addOriginVeggie;
         System.out.println("Indiquez le nom du légume à ajouter au catalogue :");
         addLabelVeggie = sc.next();
         System.out.println("Indiquez l'origine du légume à ajouter au catalogue :");
         addOriginVeggie = sc.next();
-        Veggie newVeggie = new Veggie(addLabelVeggie, addOriginVeggie);
+        Product newVeggie = new Veggie(id, addLabelVeggie, addOriginVeggie);
         System.out.println("Nouveau légume ajouté : "+catalog.addVeggie(newVeggie));
     }
 
@@ -125,6 +128,9 @@ public class Commercial extends User {
         System.out.println("Indiquez le nouveau nom :");
         String replacement = sc.next();
         fruitGotBack.setLabel(replacement);
+        System.out.println("Indiquez la nouvelle origine du produit : ");
+        String replacementOrigin = sc.next();
+        fruitGotBack.setOrigin(replacementOrigin);
         catalog.renameFruit(fruitGotBack, whichFruitToModify);
     }
     public void modifyProductVeggie(Scanner sc, Catalog catalog) {
@@ -137,12 +143,16 @@ public class Commercial extends User {
         System.out.println("Indiquez le nouveau nom :");
         String replacement = sc.next();
         veggieGotBack.setLabel(replacement);
+        System.out.println("Indiquez la nouvelle origine du produit : ");
+        String replacementOrigin = sc.next();
+        veggieGotBack.setOrigin(replacementOrigin);
+
         catalog.renameVeggie(veggieGotBack, whichVeggieToModify);
     }
 
     public void deleteProductFruit(Scanner sc, Catalog catalog){
         int indexFruitToDelete;
-        System.out.println("Indiquez le nom du fruit que vous souhaitez supprimer :");
+        System.out.println("Indiquez le numéro du fruit que vous souhaitez supprimer :");
         indexFruitToDelete = sc.nextInt();
         Product fruitToDelete = catalog.getOneFruit(indexFruitToDelete);
         catalog.removeFruit(fruitToDelete);
@@ -154,8 +164,7 @@ public class Commercial extends User {
         System.out.println("Indiquez le numéro du légume que vous souhaitez supprimer :");
         int userInput = sc.nextInt();
         Product dlVeggie = catalog.getOneVeggie(userInput);
-        System.out.println(dlVeggie.toString());
-        catalog.removeVeggie(userInput);
+        catalog.removeVeggie(dlVeggie);
         System.out.println("Légume supprimé!");
     }
 }
